@@ -1,0 +1,61 @@
+#app-shell { min-height: 100vh; display: flex; }
+.sidebar {
+  width: 240px; flex-shrink: 0; background: rgba(255, 255, 255, 0.85); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; padding: 24px 16px; position: fixed; top: 0; bottom: 0; left: 0;
+  box-shadow: 4px 0 24px rgba(0,0,0,0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 10;
+}
+.brand { display: flex; align-items: center; gap: 12px; padding: 0 8px 24px; margin-bottom: 16px; border-bottom: 1px solid var(--border); }
+.brand-mark { 
+  width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; 
+  background: var(--red-dim); color: var(--red); 
+  border-radius: 10px; font-weight: 700; font-family: var(--font-sans); font-size: 20px;
+}
+.brand-name { font-weight: 700; font-size: 18px; letter-spacing: 0.5px; color: var(--text-1); }
+.brand-sub { font-size: 11px; color: var(--text-2); font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase;}
+nav { display: flex; flex-direction: column; gap: 4px; overflow-y: auto; overflow-x: hidden; }
+nav::-webkit-scrollbar { width: 4px; }
+.nav-link {
+  display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 8px;
+  color: var(--text-2); text-decoration: none; font-size: 13.5px; font-weight: 500; background: none; border: none; text-align: left; width: 100%;
+  border-left: 3px solid transparent; transition: all var(--dur-2) var(--ease); cursor: pointer;
+}
+.nav-link:hover { background: rgba(0,0,0,0.03); color: var(--text-1); border-left-color: var(--border-strong); transform: translateX(4px); }
+.nav-link.active { 
+  background: linear-gradient(90deg, var(--red-dim) 0%, transparent 100%); 
+  color: var(--red); border-left-color: var(--red); font-weight: 600; 
+}
+.nav-link:focus-visible { outline: 2px solid var(--red); outline-offset: -2px; }
+.nav-icon { font-size: 14px; width: 16px; text-align: center; opacity: 0.8;}
+.nav-link.active .nav-icon { opacity: 1; }
+.sidebar-footer { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border); }
+.user-chip { display: flex; align-items: center; gap: 10px; padding: 10px 8px; font-size: 13px; color: var(--text-1); font-weight: 500; }
+.user-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px var(--green); }
+
+.demo-badge { margin-top: 8px; padding: 6px 8px; font-size: 11px; border-radius: 6px; background: #fef3c7; color: #92400e; text-align: center; font-weight: 600; }
+.logout-btn { width: 100%; margin-top: 12px; font-size: 12px; padding: 10px; background: rgba(0,0,0,0.03); border: 1px solid var(--border-strong); border-radius: 8px; color: var(--text-2); font-weight: 500; transition: all var(--dur-1) var(--ease); cursor: pointer;}
+.logout-btn:hover { background: rgba(0,0,0,0.08); color: var(--text-1); }
+
+.content { margin-left: 240px; padding: 32px 40px; max-width: 1400px; flex: 1; }
+.page-header { margin-bottom: 28px; }
+.page-header h1 { font-size: 24px; letter-spacing: -0.02em; }
+.page-sub { color: var(--text-2); font-size: 14px; margin-top: 6px; }
+.page { animation: fadeInUp var(--dur-3) var(--ease); display: block; }
+
+/* Responsive Sidebar */
+@media (max-width: 768px) {
+  .sidebar { width: 70px; padding: 20px 8px; }
+  .brand-name, .brand-sub, .nav-link text, .user-chip span:not(.user-dot), .logout-btn, .demo-badge { display: none; }
+  /* Need to hide the text nodes inside nav-link, but CSS can't easily target text nodes.
+     We will hide everything except the icon. */
+  .nav-link { font-size: 0; justify-content: center; padding: 14px 0; border-left: none; border-bottom: 2px solid transparent;}
+  .nav-link:hover { transform: translateY(-2px); border-left: none; border-bottom-color: var(--border-strong); }
+  .nav-link.active { border-left: none; border-bottom-color: var(--red); background: linear-gradient(0deg, var(--red-dim) 0%, transparent 100%); }
+  .nav-icon { font-size: 18px; margin: 0; }
+  .brand-mark { margin: 0 auto; width: 32px; height: 32px; font-size: 18px; }
+  .brand { border-bottom: none; padding-bottom: 0; margin-bottom: 24px; }
+  .content { margin-left: 70px; padding: 20px; }
+  .user-chip { justify-content: center; }
+}

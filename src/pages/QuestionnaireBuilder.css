@@ -1,0 +1,295 @@
+.qb-page {
+/* Questionnaire Builder Premium Styles */
+
+& {
+  --qb-bg: transparent; /* Use global background */
+  --qb-card-bg: var(--bg-1);
+  --qb-text-main: var(--text-1);
+  --qb-text-muted: var(--text-2);
+  --qb-border: var(--border);
+  
+  --qb-primary: var(--red);
+  --qb-primary-hover: var(--red-hover);
+  --qb-primary-light: var(--red-dim);
+  
+  --qb-danger: var(--red);
+  --qb-danger-hover: var(--red-hover);
+  --qb-danger-light: var(--red-dim);
+
+  --qb-success: var(--green);
+  --qb-success-light: var(--green-dim);
+  
+  --qb-shadow-sm: var(--shadow-sm);
+  --qb-shadow: var(--shadow-md);
+  --qb-shadow-hover: var(--shadow-lg);
+  
+  --qb-radius-sm: 8px;
+  --qb-radius: var(--radius);
+  --qb-radius-lg: var(--radius);
+  
+  --qb-transition: all var(--dur-2) var(--ease);
+}
+
+& {
+  background: var(--qb-bg);
+  min-height: calc(100vh - 64px);
+  padding: 32px;
+  color: var(--qb-text-main);
+}
+
+/* Header */
+.qb-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32px;
+}
+.qb-title {
+  margin: 0 0 8px 0;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--qb-text-main);
+}
+.qb-subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: var(--qb-text-muted);
+}
+
+/* Buttons */
+.qb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--qb-radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: var(--qb-transition);
+}
+.qb-btn-primary {
+  background: var(--qb-primary);
+  color: white;
+  box-shadow: var(--qb-shadow-sm);
+}
+.qb-btn-primary:hover {
+  background: var(--qb-primary-hover);
+  box-shadow: var(--qb-shadow);
+  transform: translateY(-1px);
+}
+.qb-btn-secondary {
+  background: white;
+  border-color: var(--qb-border);
+  color: var(--qb-text-main);
+  box-shadow: var(--qb-shadow-sm);
+}
+.qb-btn-secondary:hover {
+  background: #F1F5F9;
+}
+.qb-btn-danger-ghost {
+  background: transparent;
+  color: var(--qb-danger);
+}
+.qb-btn-danger-ghost:hover {
+  background: var(--qb-danger-light);
+}
+
+/* Cards */
+.qb-card {
+  background: var(--qb-card-bg);
+  border: 1px solid var(--qb-border);
+  border-radius: var(--qb-radius-lg);
+  box-shadow: var(--qb-shadow-sm);
+  overflow: hidden;
+}
+
+/* Table */
+.qb-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+.qb-table th {
+  padding: 16px 24px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--qb-text-muted);
+  border-bottom: 1px solid var(--qb-border);
+  background: #F8FAFC;
+}
+.qb-table td {
+  padding: 16px 24px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--qb-border);
+  vertical-align: middle;
+}
+.qb-table tbody tr {
+  transition: var(--qb-transition);
+}
+.qb-table tbody tr:hover {
+  background: var(--qb-primary-light);
+}
+.qb-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Badges */
+.qb-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 9999px;
+  background: var(--qb-primary-light);
+  color: var(--qb-primary);
+}
+
+/* Editor Layout */
+.qb-editor-layout {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Forms */
+.qb-form-group {
+  margin-bottom: 20px;
+}
+.qb-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--qb-text-main);
+}
+.qb-input, .qb-textarea, .qb-select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-family: inherit;
+  border: 1px solid var(--qb-border);
+  border-radius: var(--qb-radius-sm);
+  background: var(--qb-bg);
+  color: var(--qb-text-main);
+  transition: var(--qb-transition);
+  box-sizing: border-box;
+}
+.qb-input:focus, .qb-textarea:focus, .qb-select:focus {
+  outline: none;
+  border-color: var(--qb-primary);
+  background: white;
+  box-shadow: 0 0 0 3px var(--qb-primary-light);
+}
+.qb-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Question Cards */
+.qb-question-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.qb-question-card {
+  background: white;
+  border: 1px solid var(--qb-border);
+  border-radius: var(--qb-radius);
+  padding: 24px;
+  position: relative;
+  transition: var(--qb-transition);
+  box-shadow: var(--qb-shadow-sm);
+}
+.qb-question-card:hover {
+  box-shadow: var(--qb-shadow);
+  border-color: #CBD5E1;
+}
+
+.qb-question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+.qb-question-number {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--qb-primary);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.qb-question-actions {
+  opacity: 0;
+  transition: var(--qb-transition);
+}
+.qb-question-card:hover .qb-question-actions {
+  opacity: 1;
+}
+
+.qb-options-builder {
+  background: #F8FAFC;
+  border-radius: var(--qb-radius);
+  padding: 16px;
+  margin-top: 16px;
+  border: 1px dashed var(--qb-border);
+}
+
+.qb-option-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.qb-option-row:last-child {
+  margin-bottom: 0;
+}
+
+/* Switch Toggle */
+.qb-switch-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+.qb-switch {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  background: #CBD5E1;
+  border-radius: 20px;
+  transition: var(--qb-transition);
+}
+.qb-switch::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  transition: var(--qb-transition);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.qb-switch-wrapper input:checked + .qb-switch {
+  background: var(--qb-primary);
+}
+.qb-switch-wrapper input:checked + .qb-switch::after {
+  transform: translateX(16px);
+}
+.qb-switch-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--qb-text-muted);
+}
+}
